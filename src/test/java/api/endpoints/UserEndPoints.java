@@ -8,18 +8,23 @@ import api.payload.User;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.ResourceBundle;
+
 import static io.restassured.RestAssured.given;
 
 public class UserEndPoints {
 
-    public static Response createUser(User payload) {
+    static ResourceBundle getUrls(){
+        return ResourceBundle.getBundle("routes");
+    }
 
+    public static Response createUser(User payload) {
         return given()
                   .contentType(ContentType.JSON)
                   .accept(ContentType.JSON)
                   .body(payload)
                   .when()
-                  .post(Routes.post_user_url);
+                  .post(getUrls().getString("post_user_url"));
     }
 
     public static Response readUser(String username) {
@@ -27,7 +32,7 @@ public class UserEndPoints {
         return given()
                 .pathParam("username", username)
                 .when()
-                .get(Routes.get_user_url);
+                .get(getUrls().getString("get_user_url"));
     }
 
     public static Response updateUser(String username, User payload) {
@@ -38,7 +43,7 @@ public class UserEndPoints {
                 .pathParams("username", username)
                 .body(payload)
                 .when()
-                .put(Routes.update_user_url);
+                .put(getUrls().getString("update_user_url"));
     }
 
     public static Response deleteUser(String username) {
@@ -46,6 +51,6 @@ public class UserEndPoints {
         return given()
                 .pathParam("username", username)
                 .when()
-                .delete(Routes.delete_user_url);
+                .delete(getUrls().getString("delete_user_url"));
     }
 }
