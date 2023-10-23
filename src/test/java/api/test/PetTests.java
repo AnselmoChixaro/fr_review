@@ -4,6 +4,8 @@ import api.endpoints.PetEndPoints;
 import api.payload.Pet;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 public class PetTests {
     Faker faker;
     Pet payload;
+
+    public Logger logger;
 
     @BeforeClass
     public void SetupData(){
@@ -36,6 +40,9 @@ public class PetTests {
 
         payload.setTag(faketag);
         payload.setStatus(Pet.PetStatus.available);
+
+        //Logs
+        logger = LogManager.getLogger(this.getClass());
     }
 
     @Test(priority = 1)

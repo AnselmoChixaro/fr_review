@@ -11,11 +11,17 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
 
-        <RollingFile name="File" fileNmae="${basePath }/automation.log" filePattern="${base}/automation-d{yyyy-MM-dd}" >
-            <PatternLayout pattern="%d{HH:mm:ss.SSS [%t] %-5level %logger{36} - %msg%n"/>
-            <SizeBasedTriggeringPolicy size="50000"/>
-        </RollingFile>
+        <File name="File" fileName="${basePath}/automation-${date:yyyMMdd}.log" append="false" >
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
 
     </Appenders>
+
+    <Loggers>
+        <Root level="Debug">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
 
 </Configuration>
