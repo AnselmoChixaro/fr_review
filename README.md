@@ -1,8 +1,5 @@
 # fr_review
-Review my skill for rest assured, selenium, java. 
-Improve this skills
-
-Review the studies to improve my skills
+Review the studies how to create a test framework.
 
 # Phases
 
