@@ -23,4 +23,9 @@ https://petstore.swagger.io/
 |TC002|USER|Get User|GET|https://petstore.swagger.io/v2/user/{username}|Path Param: UserName|{"id": 0,"username": "string","password": "string","userStatus": 0}|NA|200|
 |TC003|USER|Update User|PUT|https://petstore.swagger.io/v2/user/{username}|{"id": 0,"username": "string","firstName": "string","lastName": "string","email": "string","password": "string","phone": "string","userStatus": 0}|NA|200|
 |TC004|USER|Delete USER|Delete|https://petstore.swagger.io/v2/user/{username}|Path Param: UserName|{"id": 0,"username": "string","password": "string","userStatus": 0}|NA|200|
+|TC005|PET|Create Pet|POST|https://petstore.swagger.io/v2/pet|{"id": Integer, "category": { "id": Integer, "name": "string" }, "name": "string", "photoUrls": [ "string" ],"tags": [{"id": integer,"name": "string"}],"status": "enum" [available, pending, sold]}|successful operation|NA|200| 
+|TC006|PET|Get Pet|GET|https://petstore.swagger.io/v2/pet/{petId}|Path Param: petId|{"id": Integer, "category": { "id": Integer, "name": "string" }, "name": "string", "photoUrls": [ "string" ],"tags": [{"id": integer,"name": "string"}],"status": "enum"[available,pending,sold]}||NA|200|
+|TC007|Pet|Update Pet|PUT|https://petstore.swagger.io/v2/pet|{"id": Integer, "category": { "id": Integer, "name": "string" }, "name": "string", "photoUrls": [ "string" ],"tags": [{"id": integer,"name": "string"}],"status": "enum" [available, pending, sold]}||NA|200|
+|TC008|PET|Delete Pet|Delete|https://petstore.swagger.io/v2/pet/{petId}|Path Param: PetId||NA|200|
+
 
